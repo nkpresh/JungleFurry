@@ -1,4 +1,5 @@
 import { _decorator, Component, Sprite, Vec3 } from 'cc';
+import { ResourceManager } from '../ResourcesFactory/ResourceManager';
 const { ccclass, property } = _decorator;
 
 @ccclass('CharacterManager')
@@ -15,6 +16,7 @@ export class CharacterManager extends Component {
     canMove: boolean = true;
 
     start() {
+        ResourceManager.getDirectory("AnimatedSprites")
         this.scheduleOnce(() => {
             this.canMove = false;
         }, 5);
